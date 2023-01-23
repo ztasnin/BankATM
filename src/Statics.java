@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Statics {
     private static int transaction = 1000;
     private static Scanner scan = new Scanner(System.in);
-    public static void printMenu(){
+
+    public static void printMenu(){ //multiple uses in the ATM class
         System.out.println("You need to enter your PIN to access the main menu!!!");
         ATM.checkPIN();
         System.out.println("----------> MAIN MENU: <---------- ");
@@ -16,7 +17,7 @@ public class Statics {
 
     }
 
-    public static void withdrawFrom(Account accountSubstract, double money){
+    public static void withdrawFrom(Account accountSubstract, double money){ //use scanned info from the ATM to withdraw money
         if(money>accountSubstract.getBalance()){
             System.out.println("Inefficient balance!!! Please try again!");
             printMenu();

@@ -13,7 +13,7 @@ public class ATM {
     private static Customer customer1 = new Customer("", 0);
 
 
-    public static void start() {
+    public static void start() { //uses methods from this class and Statics class to shorten code under while statement
         clear();
         System.out.println("Welcome to the ATM");
         System.out.print("Please type your name: ");
@@ -61,7 +61,7 @@ public class ATM {
 
 
 
-    private static void choice3(){
+    private static void choice3(){ //use method from Statics class to shorten this method's code
         System.out.print("Which account do you want to transfer money from? (S)avings/(C)hecking: ");
         String from = scan.nextLine().toLowerCase();
         scan.nextLine();
@@ -147,7 +147,7 @@ public class ATM {
 
     }
 
-    public static void checkPIN(){
+    public static void checkPIN(){  //multiple use all over the ATM class
         boolean correct = false;
         while(!correct) {
             System.out.print("Please enter your PIN number?: ");
@@ -163,7 +163,7 @@ public class ATM {
         }
     }
 
-    private static void clear(){
+    private static void clear(){ //functional in terminals
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
