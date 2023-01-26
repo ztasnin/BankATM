@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Statics {
-    private static int transaction = 1000;
+    public static int transaction = 1000;
     private static Scanner scan = new Scanner(System.in);
 
     public static void printMenu(){ //multiple uses in the ATM class
@@ -17,40 +17,6 @@ public class Statics {
 
     }
 
-    public static void withdrawFrom(Account accountSubstract, double money){ //use scanned info from the ATM to withdraw money
-        if(money>accountSubstract.getBalance()){
-            System.out.println("Inefficient balance!!! Please try again!");
-            printMenu();
-        } else if(money%5!=0){
-            System.out.println("Please choose an appropriate amount!!!");
-            printMenu();
-        } else {
-            if(money<20){
-                System.out.println("Please take " + (int)money/5 + " five dollar bills!");
-                transaction++;
-            } else{
-
-                boolean isTrue = true;
-                while(isTrue){
-                    System.out.print("How many $20 bills would you like?: ");
-                    int twenties = scan.nextInt();
-                    System.out.print("How many $5 bills would you like?: ");
-                    int fives = scan.nextInt();
-                    if(fives*5 + twenties*20 == money){
-                        isTrue=false;
-                        System.out.println("You have successfully withdrawn $"+ round(money) + " from your account" );
-                        transaction++;
-                        break;
-                    }
-                    System.out.println("Request rejected!!! Please try again");
-                    accountSubstract.withdrawCash(money);
-                }
-            }
-        }
-
-    }
-
-
 
     public static double round(double num){
         return ((double)Math.round(num*100))/100;
@@ -65,8 +31,5 @@ public class Statics {
         return transaction;
     }
 
-    public static void setTransaction(){
-        transaction++;
-    }
 
 }
